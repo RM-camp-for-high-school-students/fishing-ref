@@ -40,4 +40,7 @@ pnpm run tauri
 - [Tauri](https://tauri.app/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [shadcn/ui](https://github.com/shadcn-ui/ui)
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
