@@ -1,22 +1,43 @@
-# next-template
+# fishing-ref
 
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
+This is the Referee System for *InnoxSZ 2024 Winter Camp of High School Students*.
 
-## Usage
+## Development
 
+### Prerequisites
+- [Node.js](https://nodejs.org/) (required by Next.js)
+- [Rust](https://www.rust-lang.org/) (required by Tauri)
+- [pnpm](https://pnpm.io/) (required by the project)
 ```bash
-npx create-next-app -e https://github.com/shadcn/next-template
+npm install -g pnpm
 ```
 
-## Features
+### Setting Up the Development Environment
 
-- Next.js 13 App Directory
-- Radix UI Primitives
-- Tailwind CSS
-- Icons from [Lucide](https://lucide.dev)
-- Dark mode with `next-themes`
-- Tailwind CSS class sorting, merging and linting.
+1. Clone the repository:
 
-## License
+```bash
+git clone https://github.com/ben-fang/fishing-ref
+```
+2. Install dependencies
 
-Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
+```bash
+cd fishing-ref
+pnpm install
+```
+3. Run the Project Locally
+
+To start the development servers, run the following commands:
+
+```bash
+pnpm run tauri
+```
+## Dependencies
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Rust](https://www.rust-lang.org/)
+- [Tauri](https://tauri.app/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://github.com/shadcn-ui/ui)
+
