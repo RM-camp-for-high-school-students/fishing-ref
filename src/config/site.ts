@@ -1,18 +1,28 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Fishing Ref",
+  name: "糟糕，我被钓鱼佬包围了",
   description:
     "Referee System for InnoxSZ 2024 Winter Camp of High School Students",
   mainNav: [
     {
-      title: "Home",
+      title: "主页",
       href: "/",
     },
+    {
+      title: "正式比赛",
+      href: "/competition",
+    },
+    {
+      title: "测试模式",
+      href: "/test"
+    },
+    {
+      title: "数据管理",
+      href: "/data"
+    }
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
+
   },
 }

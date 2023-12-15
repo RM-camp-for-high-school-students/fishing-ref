@@ -56,10 +56,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 800,
         "resizable": true,
-        "title": "fishing-ref",
-        "width": 800
+        "title": "糟糕，我被钓鱼佬包围了",
+        "width": 1200
       }
     ]
   }
