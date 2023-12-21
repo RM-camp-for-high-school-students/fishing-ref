@@ -15,7 +15,7 @@ export const siteConfig = {
     },
     {
       title: "测试模式",
-      href: "/test"
+      href: "/testing"
     },
     {
       title: "数据管理",

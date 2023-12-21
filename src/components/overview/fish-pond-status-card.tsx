@@ -1,4 +1,5 @@
 'use client'
+
 import {FishPondStatus} from "@/types/devices";
 import React from "react";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
@@ -25,6 +26,8 @@ const FishPondStatusCard: React.FC<FishPondStatus> = ({isOnline, pondState}) => 
           <div className={"flex items-center justify-between space-x-4"}>
             <p className={'text-sm font-bold leading-none'}>鱼池</p>
             <p className={`text-sm ${isOnline ? "hidden" : ""}`}>未连接</p>
+            <p
+              className={`text-sm ${typeof pondState !== "undefined" && pondState === "STOP" && isOnline ? "" : "hidden"}`}>停止运行</p>
             <p
               className={`text-sm ${typeof pondState !== "undefined" && pondState === "NORMAL" && isOnline ? "" : "hidden"}`}>运行正常</p>
             <p

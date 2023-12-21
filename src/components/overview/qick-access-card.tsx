@@ -16,7 +16,7 @@ export function QuickAccessCard() {
           <Link href={"/competition"}>正式比赛</Link>
         </Button>
           <Button asChild variant={"outline"}>
-            <Link href={"/test"}>测试模式</Link>
+            <Link href={"/testing"}>测试模式</Link>
           </Button>
         </div>
       </CardContent>

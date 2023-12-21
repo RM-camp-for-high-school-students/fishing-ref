@@ -1,4 +1,5 @@
 'use client'
+
 import React from "react";
 import {FishMongerStatus} from "@/types/devices";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
@@ -35,6 +36,8 @@ const FishMongerStatusCard: React.FC<{ fishMongerStatusList: FishMongerStatus[] 
                       className={`text-sm ${typeof fishMongerStatus.mongerState !== "undefined" && fishMongerStatus.mongerState === "COOLING" && fishMongerStatus.isOnline ? "" : "hidden"}`}>冷却中</p>
                     <p
                       className={`text-sm ${typeof fishMongerStatus.mongerState !== "undefined" && fishMongerStatus.mongerState === "TRIGGERED" && fishMongerStatus.isOnline ? "" : "hidden"}`}>已触发</p>
+                    <p
+                      className={`text-sm ${typeof fishMongerStatus.mongerState !== "undefined" && fishMongerStatus.mongerState === "STOP" && fishMongerStatus.isOnline ? "" : "hidden"}`}>已停止</p>
                   </div>
                 </div>
               </li>
