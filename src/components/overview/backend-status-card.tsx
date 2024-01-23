@@ -1,7 +1,6 @@
 'use client'
-import React from "react";
+import React, {useContext} from "react";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
-import {BackendStatus} from "@/types/backend";
 import * as z from "zod";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
@@ -9,6 +8,8 @@ import {toast} from "@/components/ui/use-toast";
 import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
+import {BackendUrlContext} from "@/context/BackendUrlContext";
+import {SocketContext} from "@/context/SocketContext";
 
 const BackendConnectionFormSchema = z.object({
   ip: z.string({required_error: "请输入IP地址！", invalid_type_error: "请输入有效的IP地址！"}).ip({
@@ -21,9 +22,18 @@ const BackendConnectionFormSchema = z.object({
   }).gte(1024, "端口号应介于1024-65535之间").lte(65535, "端口号应介于1024-65535之间")
 })
 
-const BackendStatusCard: React.FC<BackendStatus> = ({isOnline}) => {
+export default function BackendStatusCard() {
 
-  const statusColor = isOnline ? 'text-green-500' : 'text-red-500';
+  const {backendUrl, setBackendUrl} = useContext(BackendUrlContext)
+  const socket = useContext(SocketContext)
+
+  if (socket === undefined) {
+    throw new Error("useContext must be used within a SocketProvider")
+  }
+
+  const { isConnected } = socket
+
+  const statusColor = isConnected ? "text-green-500" : "text-red-500";
   const statusDot = "•";
 
   const form = useForm<z.infer<typeof BackendConnectionFormSchema>>({
@@ -40,6 +50,9 @@ const BackendStatusCard: React.FC<BackendStatus> = ({isOnline}) => {
         </pre>
       ),
     })
+
+    setBackendUrl(`${data.ip}:${data.port}`);
+
   }
 
   return (
@@ -90,11 +103,10 @@ const BackendStatusCard: React.FC<BackendStatus> = ({isOnline}) => {
                 )}
               />
             </div>
-            <Button type={"submit"} disabled={isOnline} className={"flex w-full"}>连接</Button>
+            <Button type={"submit"} disabled={isConnected} className={"flex w-full"}>连接</Button>
           </form>
         </Form>
       </CardContent>
     </Card>
   )
 }
-export default BackendStatusCard;
