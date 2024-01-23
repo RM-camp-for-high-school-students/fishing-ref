@@ -1,3 +1,4 @@
+'use client'
 import React, {createContext, Dispatch, ReactNode, SetStateAction, useState} from "react";
 
 interface BackendUrlContextType {
