@@ -11,13 +11,13 @@ import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 
 const BackendConnectionFormSchema = z.object({
-  ip: z.string({required_error: "请输入IP地址", invalid_type_error: "请输入有效的IP地址"}).ip({
+  ip: z.string({required_error: "请输入IP地址！", invalid_type_error: "请输入有效的IP地址！"}).ip({
     version: "v4",
     message: "请输入有效的IP地址"
   }),
   port: z.number({
-    required_error: "请输入端口号",
-    invalid_type_error: "请输入有效的端口号"
+    required_error: "请输入端口号！",
+    invalid_type_error: "请输入有效的端口号！"
   }).gte(1024, "端口号应介于1024-65535之间").lte(65535, "端口号应介于1024-65535之间")
 })
 

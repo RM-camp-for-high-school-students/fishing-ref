@@ -17,7 +17,7 @@ npm install -g pnpm
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/ben-fang/fishing-ref
+git clone https://github.com/RM-camp-for-high-school-students/fishing-ref.git
 ```
 2. Install dependencies
 
