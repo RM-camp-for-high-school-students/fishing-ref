@@ -52,38 +52,32 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children}) => {
     const intervalId = setInterval(() => {
       newSocket.emit("fetch_game_data", () => {
         console.log("Request sent")
-      }, fetchInterval)
-    })
+      })
+    }, fetchInterval)
 
     newSocket.on('game_status', (newData) => {
-      setGameStatus(JSON.parse(newData).gameStatus)
-      console.log(JSON.stringify(newData))
+      setGameStatus(newData.gameStatus)
     })
 
     newSocket.on('game_countdown', (newData) => {
-      setGameCountdown(JSON.parse(newData).gameCountdown)
-      console.log(JSON.stringify(newData))
+      setGameCountdown(newData.gameCountdown)
     })
 
     newSocket.on('current_stage', (newData) => {
-      setCurrentStage(JSON.parse(newData).currentStage)
-      console.log(JSON.stringify(newData))
+      setCurrentStage(newData.currentStage)
     })
 
     newSocket.on('stage_countdown', (newData) => {
-      setStageCountdown(JSON.parse(newData).stageCountdown)
-      console.log(JSON.stringify(newData))
+      setStageCountdown(newData.stageCountdown)
     })
 
     newSocket.on('score', (newData) => {
-      setScore(JSON.parse(newData).score)
-      console.log(JSON.stringify(newData))
+      setScore(newData.score)
     })
 
     newSocket.on('bonus', (newData) => {
-      setBonusState(JSON.parse(newData).bonusState)
-      setBonusCountdown(JSON.parse(newData).bonusCountdown)
-      console.log(JSON.stringify(newData))
+      setBonusState(newData.bonusState)
+      setBonusCountdown(newData.bonusCountdown)
     })
 
     return () => {
