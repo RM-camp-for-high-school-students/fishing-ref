@@ -10,7 +10,7 @@ export default function GameOverviewCard() {
     throw new Error("useContext must be used within a SocketProvider")
   }
 
-  const {isConnected, gameStatus, gameCountdown} = socketContent
+  const {gameStatus, gameCountdown} = socketContent
   const [formattedTime, setFormattedTime] = useState('');
 
   const updateTime = () => {
@@ -58,7 +58,6 @@ export default function GameOverviewCard() {
             </div>
           </div>
         </div>
-
       </CardContent>
     </Card>
   )
