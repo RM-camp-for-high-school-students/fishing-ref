@@ -1,4 +1,3 @@
-'use client'
 import {QuickAccessCard} from "@/components/overview/qick-access-card";
 import BackendStatusCard from "@/components/overview/backend-status-card"
 import FishPondStatusCard from "@/components/overview/fish-pond-status-card";

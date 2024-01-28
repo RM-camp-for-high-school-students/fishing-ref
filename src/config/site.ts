@@ -13,14 +13,14 @@ export const siteConfig = {
       title: "正式比赛",
       href: "/competition",
     },
-    {
-      title: "测试模式",
-      href: "/testing"
-    },
-    {
-      title: "数据管理",
-      href: "/data"
-    }
+    // {
+    //   title: "测试模式",
+    //   href: "/testing"
+    // },
+    // {
+    //   title: "数据管理",
+    //   href: "/data"
+    // }
   ],
   links: {
 

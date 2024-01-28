@@ -32,6 +32,30 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
       setIsConnected(false)
     })
 
+    newSocket.on('game_status', (newData) => {
+      console.log(JSON.stringify(newData))
+    })
+
+    newSocket.on('countdown', (newData) => {
+      console.log(JSON.stringify(newData))
+    })
+
+    newSocket.on('current_stage', (newData) => {
+      console.log(JSON.stringify(newData))
+    })
+
+    newSocket.on('stage_countdown', (newData) => {
+      console.log(JSON.stringify(newData))
+    })
+
+    newSocket.on('score', (newData) => {
+      console.log(JSON.stringify(newData))
+    })
+
+    newSocket.on('bonus', (newData) => {
+      console.log(JSON.stringify(newData))
+    })
+
     return () => {
       newSocket.disconnect()
     }

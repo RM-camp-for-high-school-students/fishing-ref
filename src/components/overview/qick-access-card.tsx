@@ -11,13 +11,13 @@ export function QuickAccessCard() {
         <CardDescription>快速访问裁判系统常用功能</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className={"flex items-center justify-between space-x-1"}>
-          <Button asChild>
-          <Link href={"/competition"}>正式比赛</Link>
-        </Button>
-          <Button asChild variant={"outline"}>
-            <Link href={"/testing"}>测试模式</Link>
+        <div className={"flex items-center justify-center"}>
+          <Button asChild className={"flex w-full"}>
+            <Link href={"/competition"}>正式比赛</Link>
           </Button>
+          {/*<Button asChild variant={"outline"}>*/}
+          {/*  <Link href={"/testing"}>测试模式</Link>*/}
+          {/*</Button>*/}
         </div>
       </CardContent>
     </Card>
