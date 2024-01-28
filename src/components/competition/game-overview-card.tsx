@@ -46,13 +46,15 @@ export default function GameOverviewCard() {
           </div>
           <div className={"flex justify-between space-x-4"}>
             <div className={"flex-col space-y-1"}>
-            <div className={"text-sm font-medium"}>当前时间</div>
+              <div className={"text-sm font-medium"}>当前时间</div>
               <div className={"text-2xl font-bold"}>{formattedTime}</div>
             </div>
             <div className={"flex-col space-y-1"}>
               <div className={"text-sm font-medium"}>比赛剩余时间</div>
               <div
-                className={`${gameStatus === "running" ? "text-2xl font-bold" : "text-xl font-bold text-gray-500"}`}>{gameStatus === "running" ? secondsToTimerFormat(gameCountdown) : "比赛未开始"}</div>
+                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-2xl font-bold" : "text-xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" ? secondsToTimerFormat(gameCountdown) : "比赛未开始"}
+              </div>
             </div>
           </div>
         </div>
