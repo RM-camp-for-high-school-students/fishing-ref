@@ -51,7 +51,6 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children}) => {
 
     const intervalId = setInterval(() => {
       newSocket.emit("fetch_game_data", () => {
-        console.log("Request sent")
       })
     }, fetchInterval)
 

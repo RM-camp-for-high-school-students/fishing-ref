@@ -10,7 +10,7 @@ export const siteConfig = {
       href: "/",
     },
     {
-      title: "正式比赛",
+      title: "比赛",
       href: "/competition",
     },
     // {

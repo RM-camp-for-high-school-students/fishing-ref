@@ -13,11 +13,8 @@ export function QuickAccessCard() {
       <CardContent>
         <div className={"flex items-center justify-center"}>
           <Button asChild className={"flex w-full"}>
-            <Link href={"/competition"}>正式比赛</Link>
+            <Link href={"/competition"}>比赛</Link>
           </Button>
-          {/*<Button asChild variant={"outline"}>*/}
-          {/*  <Link href={"/testing"}>测试模式</Link>*/}
-          {/*</Button>*/}
         </div>
       </CardContent>
     </Card>

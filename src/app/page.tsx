@@ -1,5 +1,6 @@
 import {QuickAccessCard} from "@/components/overview/qick-access-card";
 import BackendStatusCard from "@/components/overview/backend-status-card"
+import GameOverviewCard from "@/components/competition/game-overview-card";
 
 export default function IndexPage() {
 
@@ -13,7 +14,7 @@ export default function IndexPage() {
       </div>
       <div
         className={"flex max-w-screen-md flex-col items-center justify-start space-y-8 md:flex-row md:space-x-8 md:space-y-0"}>
-
+        <GameOverviewCard/>
       </div>
     </section>
   )
