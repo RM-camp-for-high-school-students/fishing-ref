@@ -10,6 +10,11 @@ export default function GameOverviewCard() {
 
   const { isConnected } = socketContent
 
+  const statusColor = isConnected ? "text-green-500" : "text-red-500"
+  const statusDot = "•"
+
+
+
   return (
     <div></div>
   )
