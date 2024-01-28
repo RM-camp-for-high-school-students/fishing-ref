@@ -32,6 +32,14 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
       setIsConnected(false)
     })
 
+    const fetchInterval = 500
+
+    const intervalId = setInterval(() => {
+      newSocket.emit("fetch_game_data", () => {
+        console.log("Request sent")
+      })
+    })
+
     newSocket.on('game_status', (newData) => {
       console.log(JSON.stringify(newData))
     })
@@ -57,6 +65,7 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
     })
 
     return () => {
+      clearInterval(intervalId)
       newSocket.disconnect()
     }
   }, [backendUrl])

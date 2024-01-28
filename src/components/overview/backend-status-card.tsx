@@ -25,13 +25,13 @@ const BackendConnectionFormSchema = z.object({
 export default function BackendStatusCard() {
 
   const {backendUrl, setBackendUrl} = useContext(BackendUrlContext)
-  const socket = useContext(SocketContext)
+  const socketContent = useContext(SocketContext)
 
-  if (socket === undefined) {
+  if (socketContent === undefined) {
     throw new Error("useContext must be used within a SocketProvider")
   }
 
-  const { isConnected } = socket
+  const { isConnected } = socketContent
 
   const statusColor = isConnected ? "text-green-500" : "text-red-500";
   const statusDot = "•";
