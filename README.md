@@ -30,7 +30,7 @@ pnpm install
 To start the development servers, run the following commands:
 
 ```bash
-pnpm run tauri
+next build && next start
 ```
 ## Dependencies
 - [Next.js](https://nextjs.org/)
