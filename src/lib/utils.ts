@@ -26,3 +26,15 @@ export function gameStatusLocalization(gameState: string) {
     return "比赛异常"
   }
 }
+
+export function currentStageLocalization(currentStage: string) {
+  if (currentStage === "stage 1") {
+    return "第一阶段"
+  } else if (currentStage === "stage 2") {
+    return "第二阶段"
+  } else if (currentStage === "stage 3") {
+    return "第三阶段"
+  } else {
+    return "阶段异常"
+  }
+}

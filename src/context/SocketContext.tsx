@@ -13,6 +13,7 @@ interface SocketContextType {
   score: number[];
   bonusState: boolean[];
   bonusCountdown: number[];
+  remoteControlTime: number[];
 }
 
 export const SocketContext = createContext<SocketContextType | undefined>(undefined)
@@ -30,9 +31,10 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children}) => {
   const [gameCountdown, setGameCountdown] = useState(0)
   const [currentStage, setCurrentStage] = useState("")
   const [stageCountdown, setStageCountdown] = useState(0)
-  const [score, setScore] = useState<number[]>([])
-  const [bonusState, setBonusState] = useState<boolean[]>([])
-  const [bonusCountdown, setBonusCountdown] = useState<number[]>([])
+  const [score, setScore] = useState<number[]>([0, 0])
+  const [bonusState, setBonusState] = useState<boolean[]>([false, false])
+  const [bonusCountdown, setBonusCountdown] = useState<number[]>([0, 0])
+  const [remoteControlTime, setRemoteControlTime] = useState<number[]>([0, 0])
 
   useEffect(() => {
     const newSocket = io(backendUrl)
@@ -79,6 +81,10 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children}) => {
       setBonusCountdown(newData.bonusCountdown)
     })
 
+    newSocket.on('remote_control_time', (newData) => {
+      setRemoteControlTime(newData.remoteControlTime)
+    })
+
     return () => {
       clearInterval(intervalId)
       newSocket.disconnect()
@@ -95,6 +101,7 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children}) => {
       score,
       bonusState,
       bonusCountdown,
+      remoteControlTime,
       socket
     }}>
       {children}

@@ -1,8 +1,8 @@
 'use client'
-import {useContext, useEffect, useState} from "react";
+import {useContext} from "react";
 import {SocketContext} from "@/context/SocketContext";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
-import {gameStatusLocalization, secondsToTimerFormat} from "@/lib/utils";
+import {currentStageLocalization, gameStatusLocalization, secondsToTimerFormat} from "@/lib/utils";
 
 export default function GameOverviewCard() {
   const socketContent = useContext(SocketContext)
@@ -10,21 +10,7 @@ export default function GameOverviewCard() {
     throw new Error("useContext must be used within a SocketProvider")
   }
 
-  const {gameStatus, gameCountdown} = socketContent
-  const [formattedTime, setFormattedTime] = useState('');
-
-  const updateTime = () => {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString("zh-CN", {hour12: false});
-    setFormattedTime(timeString);
-  };
-
-  useEffect(() => {
-    updateTime();
-    const intervalId = setInterval(updateTime, 1000);
-
-    return () => clearInterval(intervalId);
-  }, []);
+  const {gameStatus, gameCountdown, currentStage, stageCountdown} = socketContent
 
   const statusColor = gameStatus === "running" ? "text-green-500" : "text-red-500"
   const statusDot = "•"
@@ -39,21 +25,36 @@ export default function GameOverviewCard() {
         <CardDescription>比赛状态概览</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className={"flex-col space-y-2"}>
+        <div className={"flex justify-between"}>
           <div className={"flex-col space-y-1"}>
-            <div className={"text-sm font-medium"}>比赛状态</div>
-            <div className={"text-xl font-bold text-gray-500"}>{gameStatusLocalization(gameStatus)}</div>
-          </div>
-          <div className={"flex justify-between space-x-4"}>
             <div className={"flex-col space-y-1"}>
-              <div className={"text-sm font-medium"}>当前时间</div>
-              <div className={"text-2xl font-bold"}>{formattedTime}</div>
+              <div className={"text-sm font-medium"}>比赛状态</div>
+              <div
+                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-xl font-bold" : "text-xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" ? gameStatusLocalization(gameStatus) : "比赛未开始"}
+              </div>
             </div>
+            <div className={"flex-col space-y-1"}>
+              <div className={"text-sm font-medium"}>当前阶段</div>
+              <div
+                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-xl font-bold" : "text-xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" ? currentStageLocalization(currentStage) : "比赛未开始"}
+              </div>
+            </div>
+          </div>
+          <div className={"flex-col space-y-1"}>
             <div className={"flex-col space-y-1"}>
               <div className={"text-sm font-medium"}>比赛剩余时间</div>
               <div
-                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-2xl font-bold" : "text-xl font-bold text-gray-500"}`}>
+                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-xl font-bold" : "text-xl font-bold text-gray-500"}`}>
                 {gameStatus === "running" || gameStatus === "pause" ? secondsToTimerFormat(gameCountdown) : "比赛未开始"}
+              </div>
+            </div>
+            <div className={"flex-col space-y-1"}>
+              <div className={"text-sm font-medium"}>当前阶段剩余时间</div>
+              <div
+                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-xl font-bold" : "text-xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" ? secondsToTimerFormat(stageCountdown) : "比赛未开始"}
               </div>
             </div>
           </div>
