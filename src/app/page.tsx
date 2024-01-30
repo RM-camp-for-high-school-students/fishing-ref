@@ -10,11 +10,14 @@ export default function IndexPage() {
       <div
         className={"flex max-w-screen-md flex-col items-center justify-start space-y-8 md:flex-row md:space-x-8 md:space-y-0"}>
         <BackendStatusCard/>
-        <DatetimeCard/>
       </div>
       <div
         className={"flex max-w-screen-md flex-col items-center justify-start space-y-8 md:flex-row md:space-x-8 md:space-y-0"}>
         <GameOverviewCard/>
+      </div>
+      <div
+        className={"flex max-w-screen-md flex-col items-center justify-start space-y-8 md:flex-row md:space-x-8 md:space-y-0"}>
+        <DatetimeCard/>
       </div>
     </section>
   )

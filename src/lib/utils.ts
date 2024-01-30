@@ -38,3 +38,11 @@ export function currentStageLocalization(currentStage: string) {
     return "阶段异常"
   }
 }
+
+export function bonusStateLocalization(bonusState: boolean) {
+  if (bonusState) {
+    return "已触发"
+  } else {
+    return "未触发"
+  }
+}

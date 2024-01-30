@@ -1,6 +1,7 @@
-'use client'
 import GameOverviewCard from "@/components/competition/game-overview-card";
-import ScoreCard from "@/components/competition/scorecard";
+import ScoreCard from "@/components/competition/scorecard-card";
+import BonusCard from "@/components/competition/bonus-card";
+import RemoteControlTimeCard from "@/components/competition/remote-control-time-card";
 
 export default function CompetitionPage() {
   return (
@@ -10,6 +11,11 @@ export default function CompetitionPage() {
         className={"flex max-w-screen-md flex-col items-center justify-start space-y-8 md:flex-row md:space-x-8 md:space-y-0"}>
         <GameOverviewCard/>
         <ScoreCard/>
+      </div>
+      <div
+        className={"flex max-w-screen-md flex-col items-center justify-start space-y-8 md:flex-row md:space-x-8 md:space-y-0"}>
+        <BonusCard/>
+        <RemoteControlTimeCard/>
       </div>
     </section>
   )
