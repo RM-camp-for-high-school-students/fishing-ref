@@ -1,4 +1,4 @@
-# fishing-ref
+# fishing-ref-webui
 
 This is the Referee System for *InnoxSZ 2024 Winter Camp of High School Students*.
 
