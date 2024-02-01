@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/fishing-ref.iml" filepath="$PROJECT_DIR$/.idea/fishing-ref.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/fishing-ref-webui.iml" filepath="$PROJECT_DIR$/.idea/fishing-ref-webui.iml" />
     </modules>
   </component>
 </project>
