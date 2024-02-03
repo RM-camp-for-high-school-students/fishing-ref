@@ -10,7 +10,8 @@ interface SocketContextType {
   gameCountdown: number;
   currentStage: string;
   stageCountdown: number;
-  score: number[];
+  originalScore: number[];
+  finalScore: number[];
   remoteControlTime: number[];
   invasionTime: number[];
   fishmongerCoolDown: number[];
@@ -33,7 +34,8 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children}) => {
   const [gameCountdown, setGameCountdown] = useState(0)
   const [currentStage, setCurrentStage] = useState("")
   const [stageCountdown, setStageCountdown] = useState(0)
-  const [score, setScore] = useState<number[]>([0, 0])
+  const [originalScore, setOriginalScore] = useState<number[]>([0, 0])
+  const [finalScore, setFinalScore] = useState<number[]>([0, 0])
   const [remoteControlTime, setRemoteControlTime] = useState<number[]>([0, 0])
   const [invasionTime, setInvasionTime] = useState<number[]>([0, 0])
   const [fishmongerCoolDown, setFishMongerCoolDown] = useState<number[]>([0, 0, 0, 0])
@@ -77,7 +79,8 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children}) => {
     })
 
     newSocket.on('score', (newData) => {
-      setScore(newData.score)
+      setOriginalScore(newData.originalScore)
+      setFinalScore(newData.finalScore)
     })
 
     newSocket.on('remote_control_time', (newData) => {
@@ -110,7 +113,8 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children}) => {
       gameCountdown,
       currentStage,
       stageCountdown,
-      score,
+      originalScore,
+      finalScore,
       remoteControlTime,
       invasionTime,
       fishmongerCoolDown,

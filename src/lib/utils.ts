@@ -13,17 +13,17 @@ export function secondsToTimerFormat(seconds: number) {
 
 export function gameStatusLocalization(gameState: string) {
   if (gameState === "running") {
-    return "比赛进行中"
+    return "进行中"
   } else if (gameState === "pause") {
-    return "比赛暂停"
+    return "暂停中"
   } else if (gameState === "free") {
-    return "等待比赛开始"
+    return "等待开始"
   } else if (gameState === "abort") {
-    return "比赛终止"
+    return "已终止"
   } else if (gameState === "end") {
-    return "比赛结束"
+    return "已结束"
   } else {
-    return "比赛异常"
+    return "异常"
   }
 }
 
