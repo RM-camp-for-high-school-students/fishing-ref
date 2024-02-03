@@ -11,9 +11,11 @@ interface SocketContextType {
   currentStage: string;
   stageCountdown: number;
   score: number[];
-  bonusState: boolean[];
-  bonusCountdown: number[];
   remoteControlTime: number[];
+  invasionTime: number[];
+  fishmongerCoolDown: number[];
+  gainMultiplier: number[];
+  penaltyMultiplier: number[];
 }
 
 export const SocketContext = createContext<SocketContextType | undefined>(undefined)
@@ -32,9 +34,11 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children}) => {
   const [currentStage, setCurrentStage] = useState("")
   const [stageCountdown, setStageCountdown] = useState(0)
   const [score, setScore] = useState<number[]>([0, 0])
-  const [bonusState, setBonusState] = useState<boolean[]>([false, false])
-  const [bonusCountdown, setBonusCountdown] = useState<number[]>([0, 0])
   const [remoteControlTime, setRemoteControlTime] = useState<number[]>([0, 0])
+  const [invasionTime, setInvasionTime] = useState<number[]>([0, 0])
+  const [fishmongerCoolDown, setFishMongerCoolDown] = useState<number[]>([0, 0, 0, 0])
+  const [gainMultiplier, setGainMultiplier] = useState<number[]>([0, 0])
+  const [penaltyMultiplier, setPenaltyMultiplier] = useState<number[]>([0, 0])
 
   useEffect(() => {
     const newSocket = io(backendUrl)
@@ -76,13 +80,21 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children}) => {
       setScore(newData.score)
     })
 
-    newSocket.on('bonus', (newData) => {
-      setBonusState(newData.bonusState)
-      setBonusCountdown(newData.bonusCountdown)
-    })
-
     newSocket.on('remote_control_time', (newData) => {
       setRemoteControlTime(newData.remoteControlTime)
+    })
+
+    newSocket.on('invasion_time', (newData) => {
+      setInvasionTime(newData.invasionTime)
+    })
+
+    newSocket.on('fishmonger_cool_down', (newData) => {
+      setFishMongerCoolDown(newData.fishmongerCoolDown)
+    })
+
+    newSocket.on('multiplier', (newData) => {
+      setGainMultiplier(newData.gainMultiplier)
+      setPenaltyMultiplier(newData.penaltyMultiplier)
     })
 
     return () => {
@@ -99,9 +111,11 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({children}) => {
       currentStage,
       stageCountdown,
       score,
-      bonusState,
-      bonusCountdown,
       remoteControlTime,
+      invasionTime,
+      fishmongerCoolDown,
+      gainMultiplier,
+      penaltyMultiplier,
       socket
     }}>
       {children}

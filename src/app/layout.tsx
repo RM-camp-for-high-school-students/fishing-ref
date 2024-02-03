@@ -10,6 +10,7 @@ import {ThemeProvider} from "@/components/theme-provider"
 import {Toaster} from "@/components/ui/toaster";
 import {BackendUrlProvider} from "@/context/BackendUrlContext";
 import {SocketProvider} from "@/context/SocketContext";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: {
@@ -36,7 +37,9 @@ export default function RootLayout({children}: RootLayoutProps) {
   return (
     <>
       <html lang="zh-CN" suppressHydrationWarning>
-      <head/>
+      <Head>
+        <title>糟糕，我被钓鱼佬包围了</title>
+      </Head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
