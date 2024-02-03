@@ -10,9 +10,9 @@ export default function GameOverviewCard() {
     throw new Error("useContext must be used within a SocketProvider")
   }
 
-  const {gameStatus, gameCountdown, currentStage, stageCountdown} = socketContent
+  const {isConnected, gameCountdown, currentStage, stageCountdown} = socketContent
 
-  const statusColor = gameStatus === "running" ? "text-green-500" : "text-red-500"
+  const statusColor = isConnected ? "text-green-500" : "text-red-500"
   const statusDot = "•"
 
   return (
