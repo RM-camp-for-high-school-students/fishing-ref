@@ -5,13 +5,10 @@ import TeamBDetailCard from "@/components/competition/team-b-detail-card";
 export default function CompetitionPage() {
   return (
     <section className={"container grid items-center gap-6 pb-8 pt-6 md:py-10"}>
-      <div
-        className={"flex max-w-screen-md flex-col items-center justify-start space-y-8 md:flex-row md:space-x-8 md:space-y-0"}>
+      <div>
         <GameOverviewCard/>
-
       </div>
-      <div
-        className={"flex max-w-screen-md flex-col items-center justify-start space-y-8 md:flex-row md:space-x-8 md:space-y-0"}>
+      <div className={"flex space-x-24"}>
         <TeamADetailCard/>
         <TeamBDetailCard/>
       </div>
