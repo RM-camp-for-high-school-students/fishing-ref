@@ -74,17 +74,17 @@ export default function TeamADetailCard() {
               </div>
             </div>
             <div className={'flex-col space-y-1'}>
-              <div className={'text-sm font-medium'}>进入对方基地时间</div>
-              <div
-                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-xl font-bold" : "text-xl font-bold text-gray-500"}`}>
-                {gameStatus === "running" || gameStatus === "pause" ? secondsToTimerFormat(invasionTime[0]) : "比赛未开始"}
-              </div>
-            </div>
-            <div className={'flex-col space-y-1'}>
               <div className={'text-sm font-medium'}>遥控器操作时间</div>
               <div
                 className={`${gameStatus === "running" || gameStatus === "pause" ? "text-xl font-bold" : "text-xl font-bold text-gray-500"}`}>
                 {gameStatus === "running" || gameStatus === "pause" ? secondsToTimerFormat(remoteControlTime[0]) : "比赛未开始"}
+              </div>
+            </div>
+            <div className={'flex-col space-y-1'}>
+              <div className={'text-sm font-medium'}>进入对方基地时间</div>
+              <div
+                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-xl font-bold" : "text-xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" ? secondsToTimerFormat(invasionTime[0]) : "比赛未开始"}
               </div>
             </div>
           </div>
