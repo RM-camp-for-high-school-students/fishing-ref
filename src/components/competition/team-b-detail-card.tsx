@@ -29,7 +29,7 @@ export default function TeamBDetailCard() {
     <Card className={"w-1/2"}>
       <CardHeader>
         <div className={"flex justify-between"}>
-          <CardTitle className={"text-lg"}>B队</CardTitle>
+          <CardTitle className={"text-lg"}>红方</CardTitle>
           <span className={` ${statusColor}`}>{statusDot}</span>
         </div>
       </CardHeader>
@@ -39,29 +39,29 @@ export default function TeamBDetailCard() {
             <div className={'flex-col space-y-1'}>
               <div className={'text-sm font-medium'}>原始得分</div>
               <div
-                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
-                {gameStatus === "running" || gameStatus === "pause" ? originalScore[1].toString() : "未开始"}
+                className={`${gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? originalScore[1].toString() : "未开始"}
               </div>
             </div>
             <div className={'flex-col space-y-1'}>
               <div className={'text-sm font-medium'}>增益倍率</div>
               <div
-                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
-                {gameStatus === "running" || gameStatus === "pause" ? gainMultiplier[1].toFixed(1) : "未开始"}
+                className={`${gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? gainMultiplier[1].toFixed(1) : "未开始"}
               </div>
             </div>
             <div className={'flex-col space-y-1'}>
               <div className={'text-sm font-medium'}>惩罚倍率</div>
               <div
-                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
-                {gameStatus === "running" || gameStatus === "pause" ? penaltyMultiplier[1].toFixed(3) : "未开始"}
+                className={`${gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? penaltyMultiplier[1].toFixed(3) : "未开始"}
               </div>
             </div>
             <div className={'flex-col space-y-1'}>
               <div className={'text-sm font-medium'}>实际得分</div>
               <div
-                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
-                {gameStatus === "running" || gameStatus === "pause" ? finalScore[1].toString() : "未开始"}
+                className={`${gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? finalScore[1].toString() : "未开始"}
               </div>
             </div>
           </div>
@@ -69,29 +69,29 @@ export default function TeamBDetailCard() {
             <div className={'flex-col space-y-1'}>
               <div className={'text-sm font-medium'}>鱼贩 X 冷却时间</div>
               <div
-                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
-                {gameStatus === "running" || gameStatus === "pause" ? secondsToTimerFormat(fishmongerCoolDown[2]) : "未开始"}
+                className={`${gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? secondsToTimerFormat(fishmongerCoolDown[2]) : "未开始"}
               </div>
             </div>
             <div className={'flex-col space-y-1'}>
               <div className={'text-sm font-medium'}>鱼贩 Y 冷却时间</div>
               <div
-                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
-                {gameStatus === "running" || gameStatus === "pause" ? secondsToTimerFormat(fishmongerCoolDown[3]) : "未开始"}
+                className={`${gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? secondsToTimerFormat(fishmongerCoolDown[3]) : "未开始"}
               </div>
             </div>
             <div className={'flex-col space-y-1'}>
               <div className={'text-sm font-medium'}>遥控器操作时间</div>
               <div
-                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
-                {gameStatus === "running" || gameStatus === "pause" ? secondsToTimerFormat(remoteControlTime[1]) : "未开始"}
+                className={`${gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? secondsToTimerFormat(remoteControlTime[1]) : "未开始"}
               </div>
             </div>
             <div className={'flex-col space-y-1'}>
               <div className={'text-sm font-medium'}>进入对方基地时间</div>
               <div
-                className={`${gameStatus === "running" || gameStatus === "pause" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
-                {gameStatus === "running" || gameStatus === "pause" ? secondsToTimerFormat(invasionTime[1]) : "未开始"}
+                className={`${gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? "text-3xl font-bold" : "text-3xl font-bold text-gray-500"}`}>
+                {gameStatus === "running" || gameStatus === "pause" || gameStatus === "end" ? secondsToTimerFormat(invasionTime[1]) : "未开始"}
               </div>
             </div>
           </div>
